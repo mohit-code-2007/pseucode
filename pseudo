@@ -1,0 +1,35 @@
+INITIALIZE state:
+    uploadedData = []
+    analysis = null
+    loading = false
+    fileName = ""
+
+FUNCTION handleFileUpload(event):
+    file = event.target.files[0]
+    IF no file:
+        RETURN
+
+    set fileName
+    set loading = true
+
+    PARSE file using PapaParse with headers enabled
+
+    ON parse complete:
+        TRY:
+            filter out empty rows
+            store filtered data in uploadedData
+
+            CALL supabase edge function "analyze-machine-data"
+                SEND body: { machineData: parsedData }
+
+            IF error:
+                THROW error
+
+            SET analysis = response.analysis
+            SHOW success toast "Analysis Complete"
+
+        CATCH error:
+            SHOW error toast "Analysis Failed"
+
+        FINALLY:
+            set loading = false
