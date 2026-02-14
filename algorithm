@@ -1,0 +1,138 @@
+Step 1: Start
+
+User opens the application.
+
+Check if the user is logged in.
+
+If NOT logged in → Redirect to login page.
+
+If logged in → Show dashboard.
+
+Step 2: Upload CSV File
+
+User goes to Upload Analysis page.
+
+User selects a CSV file.
+
+System reads the file.
+
+Remove empty rows from the file.
+
+Store the cleaned data.
+
+Step 3: Send Data for AI Analysis
+
+Show loading message: "Analyzing data..."
+
+Send machine data to backend (Supabase function).
+
+Backend checks:
+
+If API key exists.
+
+If request is valid.
+
+Step 4: AI Processing
+
+Backend sends machine data to AI model.
+
+AI analyzes:
+
+Load
+
+Speed
+
+Temperature
+
+Vibration
+
+Runtime hours
+
+Maintenance patterns
+
+For each machine, AI calculates:
+
+Servicing probability (0–100%)
+
+Risk level (Low / Medium / High / Critical)
+
+Key indicators
+
+Recommended action
+
+Priority score (1–10)
+
+AI also generates:
+
+Total machines
+
+Number of critical machines
+
+Average risk
+
+Overall recommendations
+
+Backend sends results back to frontend.
+
+Step 5: Display Results
+
+Stop loading.
+
+Show summary:
+
+Total machines
+
+Critical machines
+
+Average risk
+
+Recommendations
+
+For each machine:
+
+Show Machine ID
+
+Show Risk level
+
+Show Servicing probability
+
+Show Key indicators
+
+Show Recommended action
+
+Show Priority score
+
+Step 6: Download Report
+
+If user clicks Download CSV:
+
+Convert results into CSV format.
+
+Download file.
+
+If user clicks Download PDF:
+
+Create PDF report.
+
+Add summary.
+
+Add machine table.
+
+Download file.
+
+Step 7: End
+
+User can upload another file or logout.
+
+System ends.
+
+🔁 Overall Flow (Short Version)
+
+Start
+→ Login Check
+→ Upload CSV
+→ Send Data to AI
+→ AI Predicts Servicing Needs
+→ Show Results
+→ Download Report (Optional)
+→ End
